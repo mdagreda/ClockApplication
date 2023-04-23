@@ -5,6 +5,9 @@ using UnityEngine.UI;
 using UniRx;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// The clock manager handles switching between the different tabs in the clock app.
+/// </summary>
 public class ClockManager : MonoBehaviour
 {
     /// <summary>

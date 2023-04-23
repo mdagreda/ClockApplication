@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.5019608, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -327,7 +327,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 00:00.00
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7f5d8f3a68864cf418eed745f996e44e, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -391,7 +391,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 2.5564728, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &4040786316491885275
@@ -809,7 +809,7 @@ GameObject:
   - component: {fileID: 3896037365244684058}
   - component: {fileID: 2739365554288999495}
   m_Layer: 5
-  m_Name: ClearButtonPanel
+  m_Name: StopButtonPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -906,7 +906,7 @@ GameObject:
   - component: {fileID: 5457937009270340197}
   - component: {fileID: 7336723159564020904}
   m_Layer: 5
-  m_Name: StopText
+  m_Name: PauseText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -960,7 +960,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Stop
+  m_text: Pause
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1535,7 +1535,7 @@ GameObject:
   - component: {fileID: 6270820591640260874}
   - component: {fileID: 4115913752937833454}
   m_Layer: 5
-  m_Name: StartStopTogglePanel
+  m_Name: StartPauseTogglePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1632,6 +1632,8 @@ GameObject:
   - component: {fileID: 6327552836805060502}
   - component: {fileID: 8263687609019418073}
   - component: {fileID: 7758975775709005509}
+  - component: {fileID: 1915064601648443324}
+  - component: {fileID: 532468031587605946}
   m_Layer: 5
   m_Name: TimerPanel
   m_TagString: Untagged
@@ -1712,6 +1714,128 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &1915064601648443324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7904488497252574128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44f271bf508da6047b846dc8b3e15ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InputPanel: {fileID: 4273985787276828482}
+  TimerPanel: {fileID: 1020966716335965910}
+  HourInputField: {fileID: 2793278187353237455}
+  MinuteInputField: {fileID: 9210862627060768138}
+  SecondInputField: {fileID: 9101058765645432889}
+  HourErrorText: {fileID: 4153936029681950974}
+  MinuteErrorText: {fileID: 6968625236326095547}
+  SecondErrorText: {fileID: 7001828324006334216}
+  TimerText: {fileID: 6923911050532325373}
+  StopButton: {fileID: 2432599611274478001}
+  ResetButton: {fileID: 1399947111041600493}
+  StartToggle: {fileID: 3363760439171656017}
+  TimerAudioSource: {fileID: 532468031587605946}
+  TimerEndClip: {fileID: 8300000, guid: 26815ab0462a9004aaec7e54ab45b145, type: 3}
+--- !u!82 &532468031587605946
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7904488497252574128}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 26815ab0462a9004aaec7e54ab45b145, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &9054091351818590940
 GameObject:
   m_ObjectHideFlags: 0
@@ -1778,7 +1902,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Reset
+  m_text: Reset Fields
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1960,7 +2084,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8923470282356168219, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
       propertyPath: m_fontSize
-      value: 107.7
+      value: 36
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
@@ -1969,6 +2093,28 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5719339878106187613, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
   m_PrefabInstance: {fileID: 1944980209613838611}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7001828324006334216 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8923470282356168219, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
+  m_PrefabInstance: {fileID: 1944980209613838611}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9101058765645432889 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7255441422142329130, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
+  m_PrefabInstance: {fileID: 1944980209613838611}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1973437873823812768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2082,7 +2228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8923470282356168219, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
       propertyPath: m_fontSize
-      value: 107.7
+      value: 36
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
@@ -2091,6 +2237,28 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5719339878106187613, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
   m_PrefabInstance: {fileID: 1973437873823812768}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6968625236326095547 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8923470282356168219, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
+  m_PrefabInstance: {fileID: 1973437873823812768}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9210862627060768138 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7255441422142329130, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
+  m_PrefabInstance: {fileID: 1973437873823812768}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4788230468933498597
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2098,10 +2266,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5447392014911576704}
     m_Modifications:
-    - target: {fileID: 4381337929771847637, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
-      propertyPath: m_fontSize
-      value: 177.3
-      objectReference: {fileID: 0}
     - target: {fileID: 4992262199965439167, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
       propertyPath: m_Name
       value: TimerInputPanel
@@ -2190,18 +2354,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6411923773843710642, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -1.2328491
-      objectReference: {fileID: 0}
-    - target: {fileID: 7255441422142329130, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
-      propertyPath: m_Placeholder
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8923470282356168219, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
-      propertyPath: m_fontSize
-      value: 107.7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
 --- !u!224 &949163785346970040 stripped
@@ -2209,3 +2361,25 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5719339878106187613, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
   m_PrefabInstance: {fileID: 4788230468933498597}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2793278187353237455 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7255441422142329130, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
+  m_PrefabInstance: {fileID: 4788230468933498597}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4153936029681950974 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8923470282356168219, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
+  m_PrefabInstance: {fileID: 4788230468933498597}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3849319789174038854}
   - component: {fileID: 6589681249851585442}
   m_Layer: 5
-  m_Name: ClearButtonPanel (2)
+  m_Name: StartStopTogglePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 3864671397761677274}
   - component: {fileID: 1207930029536957845}
   - component: {fileID: 2650636853338581913}
+  - component: {fileID: 4731388702777819711}
   m_Layer: 5
   m_Name: StopWatchPanel
   m_TagString: Untagged
@@ -189,6 +190,21 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &4731388702777819711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143786238614123516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 564d5f99b93dd3443b8bdd80668cf1fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentLapTimeText: {fileID: 178813046889912241}
+  StopwatchToggle: {fileID: 5531427093820422429}
+  ClearButton: {fileID: 4877325397243548157}
 --- !u!1 &2353529619764791634
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,7 +218,7 @@ GameObject:
   - component: {fileID: 1342425731035268571}
   - component: {fileID: 4877325397243548157}
   m_Layer: 5
-  m_Name: Button
+  m_Name: ClearButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -324,7 +340,7 @@ GameObject:
   - component: {fileID: 6087855943322400598}
   - component: {fileID: 4929690737934838795}
   m_Layer: 5
-  m_Name: ClearButtonPanel (1)
+  m_Name: ClearButtonPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -690,7 +706,7 @@ GameObject:
   - component: {fileID: 326905068747860264}
   - component: {fileID: 5531427093820422429}
   m_Layer: 5
-  m_Name: Toggle
+  m_Name: StartStopToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1156,7 +1172,7 @@ GameObject:
   - component: {fileID: 4008561203723754563}
   - component: {fileID: 178813046889912241}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TimeCountedText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1177,10 +1193,10 @@ RectTransform:
   m_Father: {fileID: 7227330063836545670}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1494.2516}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4008561203723754563
 CanvasRenderer:
@@ -1212,8 +1228,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 00:00.00
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7f5d8f3a68864cf418eed745f996e44e, type: 2}
+  m_sharedMaterial: {fileID: 6421236150236490441, guid: 7f5d8f3a68864cf418eed745f996e44e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1237,7 +1253,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 490.75
+  m_fontSize: 479.35
   m_fontSizeBase: 365.9
   m_fontWeight: 400
   m_enableAutoSizing: 1

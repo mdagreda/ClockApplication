@@ -71,8 +71,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3328381691917199469, guid: e92fb1b2c854935449a197a84db5d90c, type: 3}
       propertyPath: m_fontSize
-      value: 763.4
+      value: 310.95
       objectReference: {fileID: 0}
+    - target: {fileID: 3328381691917199469, guid: e92fb1b2c854935449a197a84db5d90c, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f5d8f3a68864cf418eed745f996e44e, type: 2}
+    - target: {fileID: 3328381691917199469, guid: e92fb1b2c854935449a197a84db5d90c, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6421236150236490441, guid: 7f5d8f3a68864cf418eed745f996e44e, type: 2}
     - target: {fileID: 5190168092999548250, guid: e92fb1b2c854935449a197a84db5d90c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -206,7 +214,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 0
   m_Interactable: 0
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!224 &5055822641893528682 stripped
 RectTransform:
@@ -230,8 +238,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3328381691917199469, guid: e92fb1b2c854935449a197a84db5d90c, type: 3}
       propertyPath: m_fontSize
-      value: 763.4
+      value: 413.6
       objectReference: {fileID: 0}
+    - target: {fileID: 3328381691917199469, guid: e92fb1b2c854935449a197a84db5d90c, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f5d8f3a68864cf418eed745f996e44e, type: 2}
+    - target: {fileID: 3328381691917199469, guid: e92fb1b2c854935449a197a84db5d90c, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6421236150236490441, guid: 7f5d8f3a68864cf418eed745f996e44e, type: 2}
     - target: {fileID: 5190168092999548250, guid: e92fb1b2c854935449a197a84db5d90c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.1508789
@@ -353,5 +369,5 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 0
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0

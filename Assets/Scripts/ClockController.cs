@@ -5,11 +5,17 @@ using UnityEngine.UI;
 using TMPro;
 using UniRx;
 
+/// <summary>
+/// This class set the time on the clock to whatever the current time is according to the machine 
+/// this app is running on.
+/// </summary>
 public class ClockController : MonoBehaviour
 {
     [SerializeField] private TMP_Text[] currentTimeTexts;
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Setting up the update for the clock to update the current time every second
+    /// </summary>
     void Start()
     {
         // Update the current time text every second
@@ -20,6 +26,10 @@ public class ClockController : MonoBehaviour
             .AddTo(this);
     }
 
+    /// <summary>
+    /// Gets the current time according to the machine this app is running on and then updates 
+    /// all the current time text objects that are assigned.
+    /// </summary>
     void UpdateCurrentTime()
     {
         // Get the current system time
@@ -30,7 +40,7 @@ public class ClockController : MonoBehaviour
         string currentMinute = currentTime.Minute.ToString("00");
         string currentSecond = currentTime.Second.ToString("00");
 
-        string currentTimeString = $"{currentHour}:{currentMinute}.{currentSecond}";
+        string currentTimeString = $"{currentHour}:{currentMinute}:{currentSecond}";
 
         for (int i = 0; i < currentTimeTexts.Length; i++)
         {
