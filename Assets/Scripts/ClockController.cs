@@ -20,6 +20,8 @@ namespace ClockApplication
         /// </summary>
         void Start()
         {
+            UpdateCurrentTime();
+
             // Update the current time text every second
             Observable.Interval(System.TimeSpan.FromSeconds(1))
                 .Subscribe(_ =>
