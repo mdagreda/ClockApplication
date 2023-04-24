@@ -72,6 +72,7 @@ MonoBehaviour:
   TopClockPanelCanvasGroup: {fileID: 4003482050951049528}
   clock: {fileID: 6547146398976669767}
   stopwatch: {fileID: 2744430774554690817}
+  timerForClock: {fileID: 4948655662906238680}
 --- !u!114 &7320956428397924090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1118,6 +1119,17 @@ CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 7758975775709005509, guid: faa17b85ce12dbc47bcbb081a03f8e29, type: 3}
   m_PrefabInstance: {fileID: 6791011526933104996}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4948655662906238680 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1915064601648443324, guid: faa17b85ce12dbc47bcbb081a03f8e29, type: 3}
+  m_PrefabInstance: {fileID: 6791011526933104996}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44f271bf508da6047b846dc8b3e15ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5628685105473672989 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1162947164761235065, guid: faa17b85ce12dbc47bcbb081a03f8e29, type: 3}

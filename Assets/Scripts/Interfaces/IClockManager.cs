@@ -24,6 +24,11 @@ namespace ClockApplication
         IStopwatchController Stopwatch { get; }
 
         /// <summary>
+        /// The property to acess the timer controller used in this clock manager.
+        /// </summary>
+        ITimerController TimerForClock { get; }
+
+        /// <summary>
         /// Local instance variable for clock manager.
         /// </summary>
         static IClockManager Instance { get; }

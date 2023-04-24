@@ -7,9 +7,9 @@ using System;
 namespace ClockApplication
 {
     /// <summary>
-    /// This class controls the functionality of the time to set a timer and start and stop a time.
+    /// This class controls the functionality of the timer to set a timer and start and stop a timer.
     /// </summary>
-    public class TimerController : MonoBehaviour
+    public class TimerController : MonoBehaviour, ITimerController
     {
         /// <summary>
         /// The input panel where the time for the timer is set.
@@ -89,7 +89,7 @@ namespace ClockApplication
         /// <summary>
         /// The total seconds for the timer.
         /// </summary>
-        private int totalSeconds = 0;
+        private int totalSecondsRemaining = 0;
 
         /// <summary>
         /// True if the timer is running.
@@ -112,6 +112,14 @@ namespace ClockApplication
         private CompositeDisposable disposables;
 
         /// <summary>
+        /// Property to get the total seconds remaining on the timer.
+        /// </summary>
+        public int TotalSecondsRemaining
+        {
+            get { return totalSecondsRemaining; }
+        }
+
+        /// <summary>
         /// At the start assigns all the events for the UI such as stoping, resetting, and pausing.
         /// </summary>
         private void Start()
@@ -124,36 +132,11 @@ namespace ClockApplication
                 {
                     if (isOn)
                     {
-                        if (TimerPaused)
-                        {
-                            isTimerRunning = true;
-                            TimerPaused = false;
-                        }
-                        else
-                        {
-                            if (GetAndValidateTimerInput())
-                            {
-                                if (TimerAudioSource.isPlaying)
-                                {
-                                    TimerAudioSource.Stop();
-                                }
-                                isTimerRunning = true;
-                                //TogglePanelView(true);
-                                ChangeViewToggle.isOn = true;
-                            }
-                            else
-                            {
-                                StartToggle.isOn = false;
-                            }
-                        }
+                        StartTimer();
                     }
                     else
                     {
-                        if (isTimerRunning)
-                        {
-                            TimerPaused = true;
-                        }
-                        isTimerRunning = false;
+                        PauseTimer();
                     }
                 })
                 .AddTo(disposables);
@@ -171,6 +154,61 @@ namespace ClockApplication
                     }
                 })
                 .AddTo(disposables);
+        }
+
+        /// <summary>
+        /// Handles starting the timer.
+        /// </summary>
+        public void StartTimer()
+        {
+            if (TimerPaused)
+            {
+                isTimerRunning = true;
+                TimerPaused = false;
+            }
+            else
+            {
+                if (GetAndValidateTimerInput())
+                {
+                    if (TimerAudioSource.isPlaying)
+                    {
+                        TimerAudioSource.Stop();
+                    }
+                    isTimerRunning = true;
+                    ChangeViewToggle.isOn = true;
+                }
+                else
+                {
+                    StartToggle.isOn = false;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Handles pausing the timer.
+        /// </summary>
+        public void PauseTimer()
+        {
+            if (isTimerRunning)
+            {
+                TimerPaused = true;
+            }
+            isTimerRunning = false;
+        }
+
+        /// <summary>
+        /// Manually assigns the input fields used in timer.
+        /// </summary>
+        /// <param name="hours">Number of hours for the timer</param>
+        /// <param name="minutes">Number of minutes for the timer</param>
+        /// <param name="seconds">Number of seconds for the timer</param>
+        public void InputTimerTime(int hours, int minutes, int seconds)
+        {
+            HourInputField.text = hours.ToString();
+
+            MinuteInputField.text = minutes.ToString();
+
+            SecondInputField.text = seconds.ToString();
         }
 
         /// <summary>
@@ -201,9 +239,9 @@ namespace ClockApplication
                 elapsedSeconds += Time.deltaTime;
                 if (elapsedSeconds >= 1f)
                 {
-                    totalSeconds--;
+                    totalSecondsRemaining--;
                     elapsedSeconds = 0f;
-                    if (totalSeconds <= 0)
+                    if (totalSecondsRemaining <= 0)
                     {
                         StopTimer(true);
                     }
@@ -220,9 +258,9 @@ namespace ClockApplication
         /// </summary>
         private void UpdateTimerText()
         {
-            int hours = totalSeconds / 3600;
-            int minutes = (totalSeconds % 3600) / 60;
-            int seconds = totalSeconds % 60;
+            int hours = totalSecondsRemaining / 3600;
+            int minutes = (totalSecondsRemaining % 3600) / 60;
+            int seconds = totalSecondsRemaining % 60;
             string timerString = $"{hours:00}:{minutes:00}:{seconds:00}";
             TimerText.text = timerString;
         }
@@ -233,7 +271,7 @@ namespace ClockApplication
         /// return true.
         /// </summary>
         /// <returns>If the timer input is a valid time to use</returns>
-        private bool GetAndValidateTimerInput()
+        public bool GetAndValidateTimerInput()
         {
             int hours;
             bool isValidTime = true;
@@ -269,8 +307,8 @@ namespace ClockApplication
                 SecondErrorText.text = "";
             }
 
-            totalSeconds = hours * 3600 + minutes * 60 + seconds;
-            if (totalSeconds <= 0)
+            totalSecondsRemaining = hours * 3600 + minutes * 60 + seconds;
+            if (totalSecondsRemaining <= 0)
             {
                 isValidTime = false;
             }
@@ -281,8 +319,8 @@ namespace ClockApplication
         /// <summary>
         /// Stops the timer and switches back to the input panel. If the timer finished then a nosie is played.
         /// </summary>
-        /// <param name="playNoise">If the timer finished then this should be true so a noise will be played.</param>
-        private void StopTimer(bool playNoise)
+        /// <param name="isFinished">If the timer finished then this should be true so a noise will be played.</param>
+        public void StopTimer(bool isFinished)
         {
             isTimerRunning = false;
             TimerPaused = false;
@@ -293,7 +331,7 @@ namespace ClockApplication
 
             TimerText.text = "00:00:00";
 
-            if (playNoise)
+            if (isFinished)
             {
                 TimerAudioSource.PlayOneShot(TimerEndClip);
             }
@@ -302,7 +340,7 @@ namespace ClockApplication
         /// <summary>
         /// Clears the input fields back to default values.
         /// </summary>
-        private void ClearInputFields()
+        public void ClearInputFields()
         {
             HourInputField.text = "0";
             MinuteInputField.text = "0";

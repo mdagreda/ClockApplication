@@ -2810,8 +2810,20 @@ PrefabInstance:
       value: -1.2328491
       objectReference: {fileID: 0}
     - target: {fileID: 7255441422142329130, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
+      propertyPath: m_ContentType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7255441422142329130, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
       propertyPath: m_Placeholder
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7255441422142329130, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
+      propertyPath: m_KeyboardType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7255441422142329130, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
+      propertyPath: m_CharacterValidation
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8923470282356168219, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
       propertyPath: m_fontSize
@@ -2958,8 +2970,20 @@ PrefabInstance:
       value: -1.2328491
       objectReference: {fileID: 0}
     - target: {fileID: 7255441422142329130, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
+      propertyPath: m_ContentType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7255441422142329130, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
       propertyPath: m_Placeholder
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7255441422142329130, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
+      propertyPath: m_KeyboardType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7255441422142329130, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
+      propertyPath: m_CharacterValidation
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8923470282356168219, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
       propertyPath: m_fontSize
@@ -3096,6 +3120,18 @@ PrefabInstance:
     - target: {fileID: 5719339878106187613, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7255441422142329130, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
+      propertyPath: m_ContentType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7255441422142329130, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
+      propertyPath: m_KeyboardType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7255441422142329130, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}
+      propertyPath: m_CharacterValidation
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 988ab0143ed1f534bb2c16c6908c85df, type: 3}

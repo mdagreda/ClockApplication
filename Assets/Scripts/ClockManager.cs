@@ -53,9 +53,14 @@ namespace ClockApplication
         [SerializeField] private ClockController clock;
 
         /// <summary>
-        /// The stopwatch controller controlling the clocks in this clock manager.
+        /// The stopwatch controller controlling the stopwatch in this clock manager.
         /// </summary>
         [SerializeField] private StopwatchController stopwatch;
+
+        /// <summary>
+        /// The timer controller controlling the timer in this clock manager.
+        /// </summary>
+        [SerializeField] private TimerController timerForClock;
 
         /// <summary>
         /// Local instance variable for clock manager.
@@ -90,6 +95,14 @@ namespace ClockApplication
         /// </summary>
         public IStopwatchController Stopwatch {
             get { return stopwatch; }
+        }
+
+        /// <summary>
+        /// The property to acess the timer controller used in this clock manager.
+        /// </summary>
+        public ITimerController TimerForClock
+        {
+            get { return timerForClock; }
         }
 
         /// <summary>
