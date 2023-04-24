@@ -9,29 +9,26 @@ namespace ClockApplication.Tests
 {
     public class ClockTests
     {
-        // A Test behaves as an ordinary method
+        /// <summary>
+        /// Checks to see if the text returned for the clock is valid for a 24 hour clock that shows the 
+        /// hours and minutes.
+        /// </summary>
         [Test]
         public void CheckTextValidFor24HourClock()
         {
-            ClockController clock = new ClockController();
+            GameObject clockTestObject = new GameObject();
 
-            string timeString = clock.GetCurrentTimeText();
+            ClockController clockController = clockTestObject.AddComponent<ClockController>();
 
-            string pattern = @"^([01]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$";
+            string timeString = clockController.GetCurrentTimeText();
+
+            string pattern = @"^([01]?[0-9]|2[0-3]):[0-5][0-9]$";
             bool isMatch = Regex.IsMatch(timeString, pattern);
-            Debug.Log("Current time is: " + timeString);
 
             Assert.IsTrue(isMatch, "The time string '{0}' is not a valid 24-hour time.", timeString);
-        }
 
-        // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-        // `yield return null;` to skip a frame.
-        [UnityTest]
-        public IEnumerator CheckClockTextWithEnumeratorPasses()
-        {
-            // Use the Assert class to test conditions.
-            // Use yield to skip a frame.
-            yield return null;
+            Object.DestroyImmediate(clockTestObject);
+
         }
     }
 }

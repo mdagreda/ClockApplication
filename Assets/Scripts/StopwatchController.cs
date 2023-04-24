@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -39,6 +37,11 @@ namespace ClockApplication
         private bool stopwatchRunning = false;
 
         /// <summary>
+        /// This is to to dispose of events if the object is destroyed.
+        /// </summary>
+        private CompositeDisposable disposables;
+
+        /// <summary>
         /// This is the current lap time the stopwatch has recorded property.
         /// </summary>
         public float CurrentLapTime
@@ -51,6 +54,8 @@ namespace ClockApplication
         /// </summary>
         private void Start()
         {
+            disposables = new CompositeDisposable();
+
             StopwatchToggle.OnValueChangedAsObservable()
                 .Subscribe(isOn =>
                 {
@@ -63,14 +68,14 @@ namespace ClockApplication
                         StopStopwatch();
                     }
                 })
-                .AddTo(this);
+                .AddTo(disposables);
 
             ClearButton.OnClickAsObservable()
                 .Subscribe(_ =>
                 {
                     ResetStopwatch();
                 })
-                .AddTo(this);
+                .AddTo(disposables);
 
             Observable.EveryUpdate()
                 .Where(_ => stopwatchRunning)
@@ -79,7 +84,15 @@ namespace ClockApplication
                     UpdateCurrentLapTime();
                     UpdateCurrentLapTimeText();
                 })
-                .AddTo(this);
+                .AddTo(disposables);
+        }
+
+        /// <summary>
+        /// Destorys the disposables if not null when this object is destroyed.
+        /// </summary>
+        private void OnDestroy()
+        {
+            disposables?.Dispose();
         }
 
         /// <summary>

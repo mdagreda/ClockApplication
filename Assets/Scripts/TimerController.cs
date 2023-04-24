@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UniRx;
-using System;
 
 namespace ClockApplication
 {
@@ -107,7 +106,7 @@ namespace ClockApplication
         private bool TimerPaused = false;
 
         /// <summary>
-        /// This is to to dispose of events if the object is destoryed.
+        /// This is to to dispose of events if the object is destroyed.
         /// </summary>
         private CompositeDisposable disposables;
 

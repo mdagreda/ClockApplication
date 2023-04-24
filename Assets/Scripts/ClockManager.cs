@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UniRx;
-using UnityEngine.EventSystems;
 
 namespace ClockApplication
 {
@@ -61,6 +58,11 @@ namespace ClockApplication
         /// The timer controller controlling the timer in this clock manager.
         /// </summary>
         [SerializeField] private TimerController timerForClock;
+
+        /// <summary>
+        /// This is to to dispose of events if the object is destroyed.
+        /// </summary>
+        private CompositeDisposable disposables;
 
         /// <summary>
         /// Local instance variable for clock manager.
@@ -130,20 +132,30 @@ namespace ClockApplication
         /// </summary>
         void SetupEvents()
         {
+            disposables = new CompositeDisposable();
+
             ClockTabToggle.OnValueChangedAsObservable()
                 .Where(isOn => isOn)
                 .Subscribe(_ => ChangeTab(TabType.ClockTab))
-                .AddTo(this);
+                .AddTo(disposables);
 
             StopwatchTabToggle.OnValueChangedAsObservable()
                 .Where(isOn => isOn)
                 .Subscribe(_ => ChangeTab(TabType.StopwatchTab))
-                .AddTo(this);
+                .AddTo(disposables);
 
             TimerTabToggle.OnValueChangedAsObservable()
                 .Where(isOn => isOn)
                 .Subscribe(_ => ChangeTab(TabType.TimerTab))
-                .AddTo(this);
+                .AddTo(disposables);
+        }
+
+        /// <summary>
+        /// Destorys the disposables if not null when this object is destroyed.
+        /// </summary>
+        private void OnDestroy()
+        {
+            disposables?.Dispose();
         }
 
         /// <summary>

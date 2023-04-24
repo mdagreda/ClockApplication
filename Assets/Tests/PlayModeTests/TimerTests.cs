@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -32,28 +31,30 @@ namespace ClockApplication.Tests
 
             if (!sceneLoaded)
             {
-                // Get the currently active scene
-                Scene currentScene = SceneManager.GetActiveScene();
-
-                // Check if the current scene is the one you want to unload
-                if (currentScene.name == "ClockApplicationMainScene")
+                for (int i = 0; i < SceneManager.sceneCount; i++)
                 {
-                    // Unload the scene
-                    SceneManager.UnloadSceneAsync(currentScene);
-                    yield return new WaitForSeconds(1f);
+                    Scene scene = SceneManager.GetSceneAt(i);
+
+                    if (scene.name == "ClockApplicationMainScene")
+                    {
+                        sceneLoaded = true;
+                    }
                 }
 
-                // Load the scene
-                SceneManager.LoadScene("ClockApplicationMainScene");
-
+                if (!sceneLoaded)
+                {
+                    // Load the scene
+                    SceneManager.LoadScene("ClockApplicationMainScene", LoadSceneMode.Single);
+                    sceneLoaded = true;
+                }
                 // Wait for the scene to load
                 yield return new WaitForSeconds(1f);
 
                 // Find the TImerController in the scene
                 timerController = ClockManager.Instance.TimerForClock;
-
-                sceneLoaded = true;
             }
+
+            yield return null;
         }
 
         /// <summary>
@@ -122,6 +123,8 @@ namespace ClockApplication.Tests
         [UnityTest]
         public IEnumerator Test5SecondTimer()
         {
+            yield return new WaitForSeconds(5f);
+
             timerController.InputTimerTime(0, 0, 5);
 
             timerController.StartTimer();

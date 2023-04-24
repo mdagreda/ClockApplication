@@ -1,5 +1,3 @@
-using UniRx;
-
 namespace ClockApplication
 {
     /// <summary>

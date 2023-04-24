@@ -1,6 +1,3 @@
-using UnityEngine.UI;
-using TMPro;
-
 namespace ClockApplication
 {
     /// <summary>
