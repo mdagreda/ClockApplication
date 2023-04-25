@@ -18,3 +18,7 @@
 Build:
 
     There is a build of this application for Windows in the ClockAppBuild. 
+
+Hours to complete:
+
+    This project took 22 hours of development time to complete.
